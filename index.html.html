@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 22nd Birthday, My Babygurll!</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(75% 60% at 50% 0%, rgba(168,85,247,0.22), rgba(15,23,42,1));
+      color: white;
+    }
+    .firefly {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      width: 4px; height: 4px;
+      box-shadow: 0 0 8px rgba(255,255,255,0.8);
+      animation: floaty 8s infinite;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); opacity: 0.3; }
+      50% { transform: translateY(-10px); opacity: 1; }
+    }
+    .pixel-heart {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .pixel-heart div {
+      width: 10px; height: 10px;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-hidden">
+  <div id="fireflies"></div>
+  <main class="mx-auto max-w-3xl px-4 py-10 text-center">
+    <h1 class="text-4xl font-extrabold mb-4">Happy 22nd Birthday, My Babygurll! 🎉</h1>
+    <p class="mb-4">You just leveled up IRL. Stat boost applied! 📈</p>
+
+    <div class="flex justify-center gap-3 mb-6">
+      <div class="pixel-heart">
+        <!-- heart pixels -->
+        <div style="background:#ec4899"></div><div></div><div></div><div style="background:#ec4899"></div>
+        <div style="background:#ec4899"></div><div style="background:#ec4899"></div><div style="background:#ec4899"></div><div style="background:#ec4899"></div>
+        <div></div><div style="background:#ec4899"></div><div style="background:#ec4899"></div><div></div>
+        <div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-2">Achievements Unlocked 🏆</h2>
+    <ul class="list-disc text-left mx-auto w-max space-y-1">
+      <li>👩‍👧‍👦 +1 for being an amazing Mama to 2 adorable bubus and many more to come.</li>
+      <li>📏 +2 for actually being 6ft and not catfishing.</li>
+      <li>🎳 +3 for winning at bowling every time.</li>
+    </ul>
+
+    <button onclick="launchConfetti()" class="mt-6 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700">Celebrate 🎊</button>
+
+    <footer class="mt-8 text-xs opacity-70">Made with ❤️ & nerd-energy ✨</footer>
+  </main>
+
+  <script>
+    // fireflies
+    const fireflyContainer = document.getElementById('fireflies');
+    for (let i=0;i<25;i++){
+      let f=document.createElement('div');
+      f.className='firefly';
+      f.style.top=Math.random()*100+'%';
+      f.style.left=Math.random()*100+'%';
+      f.style.animationDuration=(6+Math.random()*6)+'s';
+      fireflyContainer.appendChild(f);
+    }
+
+    function launchConfetti(){
+      confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+    }
+    setTimeout(()=>launchConfetti(),600);
+  </script>
+</body>
+</html>
